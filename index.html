@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Wireless Energy Transfer - Physics Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/theme/black.min.css" id="theme">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/highlight/monokai.min.css">
+
+    <style>
+        :root {
+            --electric-orange: #ff9900;
+            --deep-space: #000000;
+            --plasma-white: #ffffff;
+            --text-main: #f0f0f0;
+        }
+
+        body {
+            background-color: var(--deep-space);
+        }
+
+        .reveal {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-main);
+            font-size: 34px;
+        }
+
+        .reveal h1,
+        .reveal h2,
+        .reveal h3,
+        .reveal h4 {
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            color: var(--electric-orange);
+            text-shadow: 0 0 10px rgba(255, 153, 0, 0.4);
+        }
+
+        .reveal h1 {
+            font-size: 2.2em;
+        }
+
+        .reveal h3 {
+            color: white;
+        }
+
+        /* Accent Colors */
+        .highlight {
+            color: var(--electric-orange);
+            font-weight: bold;
+        }
+
+        .warning {
+            color: #ff3300;
+            font-weight: bold;
+        }
+
+        /* Glassmorphism Cards */
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 153, 0, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 10px 0;
+            text-align: left;
+        }
+
+        /* Animations */
+        .pulse-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 153, 0, 0.8) 0%, rgba(0, 0, 0, 0) 70%);
+            margin: 0 auto 30px auto;
+            box-shadow: 0 0 30px var(--electric-orange);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(255, 153, 0, 0.7);
+            }
+
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 20px rgba(255, 153, 0, 0);
+            }
+
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(255, 153, 0, 0);
+            }
+        }
+
+        .formula {
+            font-family: 'Times New Roman', serif;
+            font-style: italic;
+            font-size: 1.4em !important;
+            padding: 20px;
+            border: 1px solid var(--electric-orange);
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        ul li {
+            margin-bottom: 15px;
+        }
+
+        /* Layout Helpers */
+        .split-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .half {
+            flex: 1;
+        }
+
+        img {
+            border-radius: 10px;
+            border: 2px solid var(--electric-orange);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="reveal">
+        <div class="slides">
+
+            <section data-auto-animate>
+                <div class="pulse-circle"></div>
+                <h1>Wireless Energy Transfer</h1>
+                <h3>The "Slayer Exciter" Circuit</h3>
+                <p>Electromagnetic Induction & High-Frequency Oscillation</p>
+                <p style="font-size: 0.6em; margin-top: 50px; opacity: 0.7;">
+                    Practical Project | Grade 12 Physics<br>
+                    Press <strong>'S'</strong> for Speaker View
+                </p>
+
+                <aside class="notes">
+                    Good morning, everyone. For my physics practical project, I chose to explore a technology that was a
+                    dream of Nikola Tesla over a century ago: transmitting electricity through thin air.
+                    <br><br>
+                    The result is this small device, often called a Slayer Exciter, which successfully lights an LED
+                    without any wires connecting the power source and the light.
+                </aside>
+            </section>
+
+            <section>
+                <h2>The Inspiration</h2>
+                <div class="split-container">
+                    <div class="half">
+                        <ul>
+                            <li><span class="highlight">Nikola Tesla</span> (1890s)</li>
+                            <li>The Wardenclyffe Tower</li>
+                            <li><strong>Goal:</strong> Transmit power globally without wires.</li>
+                            <li><strong>My Goal:</strong> Replicate this on a miniature scale.</li>
+                        </ul>
+                    </div>
+                    <div class="half">
+                        <div class="card"
+                            style="text-align: center; height: 200px; display: flex; align-items: center; justify-content: center;">
+                            <img src="https://static01.nyt.com/images/2009/05/04/science/05tesla.1-500.jpg?quality=75&auto=webp&disable=upscale" alt="Description of the image" width="500" height="300">
+
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="notes">
+                    This project is based on the principles of the Tesla Coil. Tesla's dream was to power entire cities
+                    wirelessly. While my project won't power a city, it demonstrates the fundamental physics required:
+                    taking DC power and converting it into a powerful, high-frequency magnetic field.
+                </aside>
+            </section>
+
+            <section>
+                <h2>Project Objectives</h2>
+                <div class="card">
+                    <p>1. <strong>Convert DC to AC:</strong> Transform static battery power into High-Frequency
+                        Oscillation.</p>
+                    <p>2. <strong>Demonstrate Coupling:</strong> Light an LED via Magnetic Resonance.</p>
+                    <p>3. <strong>Circuit Analysis:</strong> Validate the role of the Transistor as a high-speed switch.
+                    </p>
+                </div>
+
+                <aside class="notes">
+                    The objective was twofold: First, successfully build a stable high-frequency oscillator. Second,
+                    prove the concept of Magnetic Resonance Coupling by lighting the LED.
+                </aside>
+            </section>
+
+            <section>
+                <h2>The Physics: Induction</h2>
+                <p>Faraday's Law of Induction</p>
+
+                <div class="formula">
+                    &epsilon; = -N ( &Delta;&Phi; / &Delta;t )
+                </div>
+
+                <p style="margin-top: 30px; font-size: 0.8em;">
+                    <span class="highlight">&epsilon;</span> = Induced Voltage <br>
+                    <span class="highlight">&Delta;&Phi;</span> = Change in Flux <br>
+                    <span class="warning">Requirement: The field MUST be changing.</span>
+                </p>
+
+                <aside class="notes">
+                    The entire project hinges on Faraday's Law. This formula tells us that we can induce an electric
+                    potential in the Secondary Coil ONLY IF the Magnetic Flux is changing over time.
+                    <br><br>
+                    This leads to our biggest challenge: a battery creates a static field. We need to force it to change
+                    thousands of times per second.
+                </aside>
+            </section>
+
+            <section>
+                <h2>The Circuit Schematic</h2>
+
+                <div class="card"
+                    style="height: 300px; border: 2px dashed var(--electric-orange); display: flex; align-items: center; justify-content: center; margin: 20px auto;">
+                  <a href="https://ibb.co/8L6YFMKQ"><img src="https://i.ibb.co/ksQmYKHP/Final-Circuit-WPTS.png" alt="Final Circuit WPTS" border="0"></a>
+                </div>
+                <p style="font-size: 0.7em;">Battery &bull; Switch &bull; 2N2222A Transistor &bull; 27k&Omega; Resistor
+                </p>
+
+                <aside class="notes">
+                    The circuit is deceptively simple. We have a 9V Battery, a Switch, two Coils, and the heart of the
+                    circuit: the 2N2222A Transistor.
+                </aside>
+            </section>
+
+            <section>
+                <h2>The Electronic Switch</h2>
+                <h3>2N2222A Transistor</h3>
+
+                <div class="split-container">
+                    <div class="half" style="text-align: left;">
+                        <p><span class="highlight">Base (B):</span> The Control (The "Tap").</p>
+                        <p><span class="highlight">Collector (C):</span> Power In.</p>
+                        <p><span class="highlight">Emitter (E):</span> Ground Out.</p>
+                    </div>
+                    <div class="half">
+                        <div class="pulse-circle" style="width: 100px; height: 100px; animation-duration: 0.5s;"></div>
+                        <p style="font-size: 0.6em;">Switching ~40,000 times/sec</p>
+                    </div>
+                </div>
+
+                <aside class="notes">
+                    The transistor acts as a high-speed electronic switch. A small current at the Base opens the gate,
+                    allowing a much larger current to flow through the coil. It switches ON and OFF thousands of times
+                    per second.
+                </aside>
+            </section>
+
+            <section>
+                <h2>The Feedback Loop</h2>
+                <p>How does it sustain oscillation?</p>
+                <ol style="font-size: 0.8em;">
+                    <li><span class="highlight">Start:</span> Resistor triggers Base -> Transistor ON.</li>
+                    <li><span class="highlight">Field Expands:</span> Current flows through Coil.</li>
+                    <li><span class="highlight">Reverse Induction:</span> Coil induces NEGATIVE voltage in Base.</li>
+                    <li><span class="highlight">Cutoff:</span> Transistor turns OFF.</li>
+                    <li><span class="highlight">Repeat:</span> Field collapses -> Cycle restarts.</li>
+                </ol>
+
+                <aside class="notes">
+                    How does the transistor know when to turn OFF? It tells itself!
+                    1. Transistor turns ON.
+                    2. Magnetic field expands.
+                    3. This expansion induces a REVERSE voltage that turns the transistor OFF.
+                    4. The field collapses, and the resistor turns it back ON.
+                </aside>
+            </section>
+
+            <section>
+                <h2>Engineering Challenge</h2>
+                <h3 class="warning">The "Resistor Incident"</h3>
+
+                <div class="card">
+                    <p><strong>Problem:</strong> Transistor Overheating & No Light.</p>
+                    <p><strong>Diagnosis:</strong> Base current was too high (Saturation).</p>
+                    <p><strong>Solution:</strong> The <span class="highlight">27k&Omega; Resistor</span>.</p>
+                </div>
+
+                <p style="font-size: 0.7em;">This specific resistance provides the perfect "Bias" to allow oscillation.
+                </p>
+
+                <aside class="notes">
+                    Initially, the circuit didn't work. The transistor would get incredibly hot. I realized the current
+                    flowing into the Base was too strong. Through troubleshooting, I confirmed that using the correct
+                    27kΩ was the only way to get a stable, working circuit.
+                </aside>
+            </section>
+
+            <section>
+                <h2>Construction & Fatigue</h2>
+                <ul>
+                    <li><strong>No PCB:</strong> "Twist-and-Tape" connections.</li>
+                    <li><strong>The Center Tap:</strong> Required sanding off enamel insulation.</li>
+                    <li><strong>Component Fatigue:</strong> Broken transistor pins required replacement.</li>
+                </ul>
+
+                <aside class="notes">
+                    Building this without soldering presented challenges. A single loose wire at the Base or Center Tap
+                    would kill the oscillation. I also had to carefully sand off the enamel on the wire to make
+                    electrical contact.
+                </aside>
+            </section>
+
+            <section data-background-color="#000">
+                <h1 style="color: #fff; text-shadow: 0 0 20px #fff;">LIVE DEMO</h1>
+                <p>Please watch the physical setup.</p>
+
+
+                <aside class="notes">
+                    (Turn on the switch. Hold the receiver coil near the primary coil.)
+                    Notice how the LED only lights when the receiving coil is very close, illustrating how the magnetic
+                    field strength drops off rapidly with distance.
+                </aside>
+            </section>
+
+            <section>
+                <h2>Conclusion & Applications</h2>
+                <div class="split-container">
+                    <div class="half">
+                        <h4>Takeaways</h4>
+                        <ul style="font-size: 0.6em;">
+                            <li>Proven Wireless Energy Transfer.</li>
+                            <li>Verified Transistor Switching logic.</li>
+                            <li>Overcame physical troubleshooting.</li>
+                        </ul>
+                    </div>
+                    <div class="half">
+                        <h4>Real World Use</h4>
+                        <ul style="font-size: 0.6em;">
+                            <li>Qi Wireless Chargers (Phones).</li>
+                            <li>RFID / NFC Tags.</li>
+                            <li>Medical Implants.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <aside class="notes">
+                    We successfully built an oscillator based on the principles of electromagnetic induction. This
+                    fundamental physics is now used in everyday life, from charging electric toothbrushes to the
+                    wireless charging pads on our phones.
+                </aside>
+            </section>
+
+            <section>
+                <h2>Thank You</h2>
+                <h3>Any Questions?</h3>
+                <p style="font-size: 0.5em;">Project by Group &#947;5</p>
+
+                <aside class="notes">
+                    Thank you for your time. I am now happy to answer any questions about the theory, the components, or
+                    the troubleshooting process.
+                </aside>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/notes/notes.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/highlight/highlight.min.js"></script>
+
+    <script>
+        // Initialize Reveal.js
+        Reveal.initialize({
+            hash: true,
+            transition: 'slide', // changed from convex to slide for smoother effect
+            transitionSpeed: 'slow', // added for slower animation
+            plugins: [RevealHighlight, RevealNotes]
+        });
+    </script>
+
+</body>
+
+</html>
