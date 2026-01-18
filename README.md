@@ -1,2 +1,2 @@
 # wptsPresentation
-A presentation on Wireless Power Transfer Via Electromagnetic Induction.
+A Presentation on Wireless Power Transfer Via Electromagnetic Induction.
